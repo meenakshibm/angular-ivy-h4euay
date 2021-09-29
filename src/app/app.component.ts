@@ -54,6 +54,7 @@ export class AppComponent {
       email: 'users.email',
       password: 'users.password',
     };
+
     if (
       users.password.includes(users.firstName) ||
       users.password.includes(users.lastName)
