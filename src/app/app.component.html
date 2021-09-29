@@ -1,0 +1,72 @@
+<h2>User Sign-up Page</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1">
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm.value)">
+        <div class="form-group">
+          <label for="first-name">First Name: </label>
+          <input
+            id="first-name"
+            type="text"
+            formControlName="firstName"
+            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+          />
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">
+              First Name is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name: </label>
+          <input
+            id="last-name"
+            type="text"
+            formControlName="lastName"
+            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+          />
+          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email: </label>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+          />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pasword">Password: </label>
+          <input
+            id="pasword"
+            type="password"
+            formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+          />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.pattern">
+              Password should contain atleast 8 characters with Upper Case and
+              Lower Case
+            </div>
+          </div>
+          <div *ngIf="show">
+            Password should not contain FirstName or Last Name
+          </div>
+        </div>
+        <div>
+          <button type="submit">Submit</button>
+          <button class="cancelbtn" type="reset" (click)="onReset()">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

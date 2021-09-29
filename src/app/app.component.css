@@ -1,0 +1,27 @@
+h2 {
+  margin-left: 20px;
+}
+label {
+  min-width: 100px;
+}
+div {
+  display: flex;
+  /* justify-content: space-between;*/
+  max-width: 800px;
+  max-height: 400px;
+  margin-left: 10px;
+}
+input {
+  margin-right: 160px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  height: 25px;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+.cancelbtn {
+  margin-left: 20px;
+}
