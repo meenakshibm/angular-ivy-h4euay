@@ -48,12 +48,6 @@ export class AppComponent {
     }
 
     //console.log(users);
-    var user = {
-      firstName: 'users.firstName',
-      lastName: 'users.lastName',
-      email: 'users.email',
-      password: 'users.password',
-    };
 
     if (
       users.password.includes(users.firstName) ||
@@ -70,15 +64,19 @@ export class AppComponent {
     }
 
     //this.submitted = false;
-
-    this.http.post('https://demo-api.now.sh/user', user);
+    let url = 'https://demo-api.now.sh/user';
+    this.http.post(url, users);
     console.log(users);
 
-    // this.http.post('https://demo-api.now.sh/user', users)
-    // .subscribe((data) => {});
+    /*const headers = new HttpHeaders()
+      .set('Authorization', 'my-auth-token')
+      .set('Content-Type', 'application/json');
+    this.http
+      .post(url, users)
+      .subscribe((res) => console.log('Data Post Done'));*/
   };
   onReset() {
     this.submitted = false;
     this.profileForm.reset();
-}
+  }
 }
